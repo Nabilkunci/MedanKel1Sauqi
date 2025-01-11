@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kota Medan</title>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-white font-sans">
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed w-full top-0 z-50 p-5 transition-all duration-300 ease-in-out" style="background-color: rgba(31, 41, 55, 0.9); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-bottom: 2px solid rgba(255, 255, 255, 0.5); padding: 10px 0;">
+    <div class="container mx-auto flex items-center justify-between">
+      <a href="">
+        <h1 class="text-2xl md:text-3xl font-bold text-yellow-600">Medan ID</h1>
+      </a>
+      <!-- Menu Desktop -->
+      <div class="hidden md:flex md:space-x-10">
+        <a href="#about" class="text-yellow-600 hover:text-gray-300 transition duration-200">About Us</a>
+        <a href="#kelompok" class="text-yellow-600 hover:text-gray-300 transition duration-200">Anggota</a>
+        <a href="#vision-mission" class="text-yellow-600 hover:text-gray-300 transition duration-200">Visi&Misi</a>
+        <a href="#medandetails" class="text-yellow-600 hover:text-gray-300 transition duration-200">Medan Details</a>
+         <a href="#testimoni" class="text-yellow-600 hover:text-gray-300 transition duration-200">Testimoni</a>
+        <a href="#faq" class="text-yellow-600 hover:text-gray-300 transition duration-200">FAQ</a>
+        <a href="#gallery" class="text-yellow-600 hover:text-gray-300 transition duration-200">Gallery</a>
+        <a href="#contact" class="text-yellow-600 hover:text-gray-300 transition duration-200">Contact Us</a>
+        <a href="class94.html" class="text-yellow-600 hover:text-gray-300 transition duration-200">Class 94</a>
+      </div>
+      <!-- Menu Mobile -->
+      <div class="md:hidden">
+        <button id="menu-toggle" class="focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hamburger-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Dropdown Menu -->
+    <ul id="menu" class="md:hidden hidden flex-col space-y-2 mt-4 bg-gray-800 rounded-md shadow-lg p-4">
+      <li><a href="#about" class="block py-2 text-yellow-600 hover:bg-gray-700 transition rounded">About Us</a></li>
+      <li><a href="#kelompok" class="text-yellow-600 hover:text-gray-300 transition duration-200">Anggota</a></a></li>
+      <li><a  href="#vision-mission" class="text-yellow-600 hover:text-gray-300 transition duration-200">Visi&Misi</a></li>
+      <li><a href="#medandetails" class="text-yellow-600 hover:text-gray-300 transition duration-200">Medan Details</a></li>
+      <li><a href="#testimoni" class="text-yellow-600 hover:text-gray-300 transition duration-200">Testimoni</a></li>
+      <li><a href="#faq" class="text-yellow-600 hover:text-gray-300 transition duration-200">FAQ</a></li>
+      <li><a href="#gallery" class="text-yellow-600 hover:text-gray-300 transition duration-200">Gallery</a></li>
+      <li><a href="#contact" class="block py-2 text-yellow-600 hover:bg-gray-700 transition rounded">Contact Us</a></li>
+       <li><a href="class94.html" class="text-yellow-600 hover:text-gray-300 transition duration-200">Class 94</a></li>
+    </ul>
+  </nav>
+  </div>
+
+
+  <!-- JavaScript -->
+  <script>
+    const navbar = document.getElementById('navbar');
+    const navbarTexts = document.querySelectorAll('.navbar-text');
+    const hamburgerIcon = document.querySelector('.hamburger-icon');
+    let lastScrollTop = 0;
+
+    window.addEventListener('scroll', function () {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (scrollTop > 50) {
+        // Mengubah style navbar
+        navbar.style.backgroundColor = 'rgba(31, 41, 55, 0.9)';
+        navbar.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+        navbar.style.borderBottom = '2px solid rgba(255, 255, 255, 0.5)';
+        navbar.style.padding = '10px 0';
+        navbarTexts.forEach(text => text.classList.add('scrolled'));
+        hamburgerIcon.classList.add('scrolled');
+      } else {
+        navbar.style.backgroundColor = 'transparent';
+        navbar.style.boxShadow = 'none';
+        navbar.style.borderBottom = 'none';
+        navbar.style.padding = '20px 0';
+        navbarTexts.forEach(text => text.classList.remove('scrolled'));
+        hamburgerIcon.classList.remove('scrolled');
+      }
+      lastScrollTop = scrollTop;
+    });
+
+    // Smooth scrolling for anchor links
+    const navbarLinks = document.querySelectorAll('a[href^="#"]');
+    navbarLinks.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80, // Offset for the navbar height
+            behavior: 'smooth',
+          });
+        }
+      });
+    });
+
+    // Toggle mobile menu
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+
+    menuToggle.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
+  </header>
+
+
+  <!-- Hero Section with adjusted padding-top -->
+  <section class="relative bg-yellow-100 h-screen flex items-center justify-center text-center pt-24">
+    <div class="absolute inset-0 bg-cover bg-center bg-fixed" style="background-image: url('src/img/heromedan.jpg');"></div>
+    <div class="relative z-10 max-w-2xl">
+      <h2 class="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
+        <span>Menjuah </span><span class="text-yellow-600">M</span><span>enjuah Di Website Kota </span><span class="text-yellow-600">M</span><span>edan</span>
+      </h2>
+      <p class="mt-4 text-lg md:text-xl text-white drop-shadow-md">
+        Eksplorasi budaya, kuliner, dan keindahan Kota Medan bersama kami.
+      </p>
+      <a href="#about" class="mt-6 inline-block bg-yellow-600 text-white px-6 py-3 rounded-md text-lg hover:bg-yellow-700">Jelajahi Sekarang</a>
+    </div>
+  </section>
+
+
+  <!-- Tentang Kota Medan -->
+  <section id="about" class="bg-white py-16 px-4 md:px-8">
+    <div class="container mx-auto max-w-4xl text-center" data-aos="fade-down">
+      <h2 class="text-3xl md:text-4xl font-bold text-yellow-600">Tentang Kota Medan</h2>
+      <p class="mt-4 text-gray-700 leading-relaxed">
+        Kota Medan, ibu kota Sumatera Utara, dikenal sebagai pintu gerbang ke Indonesia bagian barat. Kota ini kaya akan sejarah, budaya, dan kuliner yang khas. Dari bangunan kolonial seperti Tjong A Fie Mansion hingga Istana Maimun yang megah, Medan menawarkan pengalaman unik bagi setiap pengunjung.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Anggota Kelompok -->
+  <section id="kelompok" class="bg-yellow-50 py-16 px-4 md:px-8">
+    <div class="container mx-auto">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-yellow-600 text-center mb-8">Anggota Kelompok</h2>
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+        <!-- Card 1 -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden relative hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex flex-col items-center p-6">
+            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-yellow-600">
+              <img src="siswa94/sauqi30.png" alt="Anggota 1" class="w-full h-full object-cover">
+            </div>
+            <h3 class="mt-4 text-xl font-semibold text-gray-800">Syauqi Ramadhan</h3>
+            <p class="text-sm text-gray-600">Ketua Kelompok</p>
+            <a href="src/cv/CVSAUQI.pdf" class="mt-4 inline-flex items-center bg-yellow-600 text-white px-4 py-2 rounded-md text-sm hover:bg-yellow-700 transition-colors">
+              <i class="fas fa-download mr-2"></i> Download CV
+            </a>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden relative hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex flex-col items-center p-6">
+            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-yellow-600">
+              <img src="siswa94/rifki16.png" alt="Anggota 2" class="w-full h-full object-cover">
+            </div>
+            <h3 class="mt-4 text-xl font-semibold text-gray-800">Muhammad Rifki Pratama</h3>
+            <p class="text-sm text-gray-600">Wakil Ketua Kelompok</p>
+            <a href="src/cv/CVRIFKI.pdf" class="mt-4 inline-flex items-center bg-yellow-600 text-white px-4 py-2 rounded-md text-sm hover:bg-yellow-700 transition-colors">
+              <i class="fas fa-download mr-2"></i> Download CV
+            </a>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden relative hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex flex-col items-center p-6">
+            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-yellow-600">
+              <img src="siswa94/akram2.png" alt="Anggota 3" class="w-full h-full object-cover">
+            </div>
+            <h3 class="mt-4 text-xl font-semibold text-gray-800">Akram Ramzy</h3>
+            <p class="text-sm text-gray-600">Dokumentator</p>
+            <a href="src/cv/CVAKRAM.pdf" class="mt-4 inline-flex items-center bg-yellow-600 text-white px-4 py-2 rounded-md text-sm hover:bg-yellow-700 transition-colors">
+              <i class="fas fa-download mr-2"></i> Download CV
+            </a>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden relative hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="400">
+          <div class="flex flex-col items-center p-6">
+            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-yellow-600">
+              <img src="siswa94/nizar1.png" alt="Anggota 4" class="w-full h-full object-cover">
+            </div>
+            <h3 class="mt-4 text-xl font-semibold text-gray-800">Ahmad Nizar</h3>
+            <p class="text-sm text-gray-600">Presentator</p>
+            <a href="src/cv/CVNIZAR.pdf" class="mt-4 inline-flex items-center bg-yellow-600 text-white px-4 py-2 rounded-md text-sm hover:bg-yellow-700 transition-colors">
+              <i class="fas fa-download mr-2"></i> Download CV
+            </a>
+          </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden relative hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="500">
+          <div class="flex flex-col items-center p-6">
+            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-yellow-600">
+              <img src="siswa94/ardy6.png" alt="Anggota 5" class="w-full h-full object-cover">
+            </div>
+            <h3 class="mt-4 text-xl font-semibold text-gray-800">Ardy Rahman</h3>
+            <p class="text-sm text-gray-600">Presentator</p>
+            <a href="src/cv/CVARDY.pdf" class="mt-4 inline-flex items-center bg-yellow-600 text-white px-4 py-2 rounded-md text-sm hover:bg-yellow-700 transition-colors">
+              <i class="fas fa-download mr-2"></i> Download CV
+            </a>
+          </div>
+        </div>
+        <!-- Card 6 -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden relative hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="600">
+          <div class="flex flex-col items-center p-6">
+            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-yellow-600">
+              <img src="siswa94/aska8.png" alt="Anggota 6" class="w-full h-full object-cover">
+            </div>
+            <h3 class="mt-4 text-xl font-semibold text-gray-800">Azka Alfariziq Mustafa</h3>
+            <p class="text-sm text-gray-600">Moderator</p>
+            <a href="src/cv/CVAZKA.pdf" class="mt-4 inline-flex items-center bg-yellow-600 text-white px-4 py-2 rounded-md text-sm hover:bg-yellow-700 transition-colors">
+              <i class="fas fa-download mr-2"></i> Download CV
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Section Visi & Misi -->
+  <section id="vision-mission" class="bg-white py-16 px-4 md:px-8 mt-16">
+    <div class="container mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-yellow-600 text-center">Visi & Misi</h2>
+      <p class="text-gray-600 text-center mt-4">
+        Mengenal lebih dekat visi dan misi yang menjadi fondasi pengembangan Kota Medan.
+      </p>
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Visi -->
+        <div class="bg-yellow-50 rounded-lg shadow-md p-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-center space-x-4">
+            <div class="bg-yellow-600 text-white w-12 h-12 flex items-center justify-center rounded-full text-xl font-bold">V</div>
+            <h3 class="text-2xl font-bold text-gray-800">Visi</h3>
+          </div>
+          <p class="mt-4 text-gray-600">
+            Menjadikan Kota Medan sebagai pusat kebudayaan, pariwisata, dan ekonomi yang berkelanjutan, 
+            dengan masyarakat yang sejahtera dan berdaya saing.
+          </p>
+        </div>
+        <!-- Misi -->
+        <div class="bg-yellow-50 rounded-lg shadow-md p-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-center space-x-4">
+            <div class="bg-yellow-600 text-white w-12 h-12 flex items-center justify-center rounded-full text-xl font-bold">M</div>
+            <h3 class="text-2xl font-bold text-gray-800">Misi</h3>
+          </div>
+          <ul class="mt-4 space-y-3 list-disc list-inside text-gray-600">
+            <li>Meningkatkan kualitas pendidikan dan pengetahuan masyarakat.</li>
+            <li>Mengembangkan potensi pariwisata dan budaya lokal.</li>
+            <li>Mendorong pertumbuhan ekonomi berbasis UMKM dan investasi.</li>
+            <li>Mewujudkan tata kelola pemerintahan yang transparan dan akuntabel.</li>
+            <li>Mengutamakan pelestarian lingkungan hidup untuk generasi mendatang.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  
+  <!-- Tentang Kota Medan -->
+  <section id="profile" class="bg-yellow-600 py-16 px-4 md:px-8 mt-16" data-aos="fade-up">
+    <div class="container mx-auto max-w-4xl text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-8" data-aos="fade-down" data-aos-delay="200">Medan Details</h2>
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Luas Wilayah -->
+        <div class="flex flex-col items-center text-center" data-aos="zoom-in" data-aos-delay="300">
+          <div class="text-white text-6xl relative">
+            <i class="fas fa-map-marked-alt"></i>
+            <span class="absolute top-0 left-0 animate-pulse bg-yellow-400 w-6 h-6 rounded-full opacity-75"></span>
+          </div>
+          <h3 class="text-xl font-bold text-white mt-4 drop-shadow-md">Luas Wilayah</h3>
+          <p class="mt-2 text-black font-medium text-lg drop-shadow-sm">265,1 km<sup>2</sup></p>
+        </div>
+        <!-- Jumlah Penduduk -->
+        <div class="flex flex-col items-center text-center" data-aos="zoom-in" data-aos-delay="400">
+          <div class="text-white text-6xl relative">
+            <i class="fas fa-users"></i>
+            <span class="absolute top-0 left-0 animate-pulse bg-yellow-400 w-6 h-6 rounded-full opacity-75"></span>
+          </div>
+          <h3 class="text-xl font-bold text-white mt-4 drop-shadow-md">Jumlah Penduduk</h3>
+          <p class="mt-2 text-black font-medium text-lg drop-shadow-sm">2,5 juta jiwa</p>
+        </div>
+        <!-- Tempat Wisata -->
+        <div class="flex flex-col items-center text-center" data-aos="zoom-in" data-aos-delay="500">
+          <div class="text-white text-6xl relative">
+            <i class="fas fa-landmark"></i>
+            <span class="absolute top-0 left-0 animate-pulse bg-yellow-400 w-6 h-6 rounded-full opacity-75"></span>
+          </div>
+          <h3 class="text-xl font-bold text-white mt-4 drop-shadow-md">Tempat Wisata</h3>
+          <p class="mt-2 text-black font-medium text-lg drop-shadow-sm">50+ Destinasi</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kuliner Khas Medan -->
+  <section id="medandetails" class="py-16 bg-white mt-16" data-aos="fade-up">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-semibold text-yellow-600 mb-8" data-aos="fade-down" data-aos-delay="200">Kuliner Khas Medan</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="300">
+          <img src="src/img/bika-ambon.jpg" alt="Bika Ambon" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-yellow-600 mb-2">Bika Ambon</h3>
+            <p class="text-gray-700">Kue tradisional khas Medan dengan rasa manis dan tekstur kenyal yang unik.</p>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="400">
+          <img src="src/img/soto-medan.jpg" alt="Soto Medan" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-yellow-600 mb-2">Soto Medan</h3>
+            <p class="text-gray-700">Soto khas Medan yang kaya rempah dengan daging sapi atau ayam dan nasi putih.</p>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="500">
+          <img src="src/img/durian-ucok.jpg" alt="Durian Ucok" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-yellow-600 mb-2">Durian Ucok</h3>
+            <p class="text-gray-700">Durian Medan yang terkenal dengan rasanya yang manis dan durinya yang tebal.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Destinasi Wisata -->
+  <section id="destinasi" class="relative py-16 px-4 md:px-8 mt-16" data-aos="fade-up">
+    <!-- Efek Cahaya -->
+    <div class="absolute inset-0 top-0 bg-gradient-to-b from-yellow-600 to-transparent opacity-80 h-1/2"></div>
+    <!-- Gambar Background Kiri -->
+    <div class="absolute inset-0 left-0 top-0 bg-cover bg-left opacity-60" style="background-image: url('https://files.catbox.moe/fo3v0d.png');"></div>
+    <div class="container mx-auto relative z-10">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-yellow-600 text-center tracking-wide" data-aos="fade-down">
+        <span class="block text-shadow-md">
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-yellow-700">
+            Destinasi
+          </span>
+        </span>
+        <span class="block text-shadow-sm">
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-yellow-700">
+            Wisata
+          </span>
+        </span>
+      </h2>
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div class="bg-white shadow-md rounded-lg overflow-hidden bg-opacity-60 backdrop-blur-lg" data-aos="zoom-in" data-aos-delay="200">
+          <img src="src/img/istana-maimun.jpg" alt="Istana Maimun" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-bold text-gray-800">Istana Maimun</h3>
+            <p class="mt-2 text-gray-600">Ikon budaya Melayu yang memukau dengan arsitektur megah dan sejarah yang kaya.</p>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-white shadow-md rounded-lg overflow-hidden bg-opacity-60 backdrop-blur-lg" data-aos="zoom-in" data-aos-delay="300">
+          <img src="src/img/tjong_a_fie.jpg" alt="Tjong A Fie Mansion" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-bold text-gray-800">Tjong A Fie Mansion</h3>
+            <p class="mt-2 text-gray-600">Rumah bersejarah dengan arsitektur Tionghoa dan nilai budaya tinggi.</p>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-white shadow-md rounded-lg overflow-hidden bg-opacity-60 backdrop-blur-lg" data-aos="zoom-in" data-aos-delay="400">
+          <img src="src/img/masjid_raya.jpg" alt="Masjid Raya Al-Mashun" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-bold text-gray-800">Masjid Raya Al-Mashun</h3>
+            <p class="mt-2 text-gray-600">Salah satu masjid termegah di Medan dengan desain arsitektur yang indah.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event dan Budaya Lokal -->
+  <section id="event" class="bg-white py-16 px-4 md:px-8 mt-16" data-aos="fade-up">
+    <div class="container mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-yellow-600 text-center" data-aos="fade-down">
+        Event dan Budaya Lokal
+      </h2>
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white shadow-md rounded-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="200">
+          <img src="src/img/event1.jpg" alt="Festival Musik" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-bold text-gray-800">Pekan Raya Sumatera Utara</h3>
+            <p class="text-gray-600">25 Maret - 5 April 2025</p>
+            <p class="mt-2 text-gray-600">Event tahunan terbesar yang menampilkan kebudayaan lokal dan hiburan.</p>
+          </div>
+        </div>
+        <div class="bg-white shadow-md rounded-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="300">
+          <img src="src/img/event2.jpg" alt="Parade Budaya" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-bold text-gray-800">Parade Budaya Nusantara</h3>
+            <p class="text-gray-600">17 Agustus 2025</p>
+            <p class="mt-2 text-gray-600">Menampilkan beragam budaya lokal melalui tarian, musik, dan kostum.</p>
+          </div>
+        </div>
+        <div class="bg-white shadow-md rounded-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="400">
+          <img src="src/img/event3.jpg" alt="Pameran Seni" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-bold text-gray-800">Pameran Seni Medan</h3>
+            <p class="text-gray-600">1 - 7 Juli 2025</p>
+            <p class="mt-2 text-gray-600">Pameran seni lukis, patung, dan fotografi karya seniman lokal.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimoni Pengunjung -->
+  <section id="testimoni" class="bg-white py-16 mt-16 px-4 md:px-8" data-aos="fade-up">
+    <div class="container mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-yellow-600 text-center" data-aos="fade-down">
+        Testimoni Pengunjung
+      </h2>
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-yellow-50 shadow-md rounded-lg p-4 text-center" data-aos="zoom-in" data-aos-delay="200">
+          <img src="src/img/user1.jpg" alt="Pengunjung 1" class="w-20 h-20 rounded-full mx-auto">
+          <h3 class="text-lg font-bold text-gray-800 mt-4">Rakha Tri Hamadi</h3>
+          <p class="text-gray-600 mt-2">"Medan memiliki keindahan dan keragaman budaya yang luar biasa. Saya sangat menikmatinya!"</p>
+        </div>
+        <div class="bg-yellow-50 shadow-md rounded-lg p-4 text-center" data-aos="zoom-in" data-aos-delay="300">
+          <img src="src/img/user2.jpg" alt="Pengunjung 2" class="w-20 h-20 rounded-full mx-auto">
+          <h3 class="text-lg font-bold text-gray-800 mt-4">Shofwan Nizami</h3>
+          <p class="text-gray-600 mt-2">"Kuliner di Medan benar-benar lezat dan menggugah selera. Tidak bisa berhenti makan!"</p>
+        </div>
+        <div class="bg-yellow-50 shadow-md rounded-lg p-4 text-center" data-aos="zoom-in" data-aos-delay="400">
+          <img src="src/img/user3.jpg" alt="Pengunjung 3" class="w-20 h-20 rounded-full mx-auto">
+          <h3 class="text-lg font-bold text-gray-800 mt-4">Nabil Vennu Pangestu</h3>
+          <p class="text-gray-600 mt-2">"Destinasi wisata di Medan sangat menarik, terutama Danau Toba yang luar biasa indah."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FAQ -->
+  <section id="faq" class="bg-white py-16 mt-16 px-4 md:px-8">
+    <div class="container mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-yellow-600 text-center">FAQ (Frequently Asked Questions)</h2>
+      <div class="mt-8 max-w-3xl mx-auto space-y-4">
+        <!-- Question 1 -->
+        <div class="bg-white shadow-md rounded-lg">
+          <button class="w-full text-left flex justify-between items-center p-4 font-bold text-gray-800 focus:outline-none faq-btn">
+            Bagaimana cara mencapai Kota Medan?
+            <span class="transform transition-transform faq-icon">+</span>
+          </button>
+          <div class="faq-content hidden p-4 border-t text-gray-600">
+            Anda dapat mencapai Medan melalui Bandara Kualanamu, stasiun kereta api, atau jalur darat.
+          </div>
+        </div>
+        <!-- Question 2 -->
+        <div class="bg-white shadow-md rounded-lg">
+          <button class="w-full text-left flex justify-between items-center p-4 font-bold text-gray-800 focus:outline-none faq-btn">
+            Apa makanan khas yang harus dicoba di Medan?
+            <span class="transform transition-transform faq-icon">+</span>
+          </button>
+          <div class="faq-content hidden p-4 border-t text-gray-600">
+            Beberapa makanan khas yang wajib dicoba adalah Bika Ambon, Soto Medan, dan durian Medan.
+          </div>
+        </div>
+        <!-- Question 3 -->
+        <div class="bg-white shadow-md rounded-lg">
+          <button class="w-full text-left flex justify-between items-center p-4 font-bold text-gray-800 focus:outline-none faq-btn">
+            Kapan waktu terbaik untuk berkunjung ke Medan?
+            <span class="transform transition-transform faq-icon">+</span>
+          </button>
+          <div class="faq-content hidden p-4 border-t text-gray-600">
+            Waktu terbaik untuk berkunjung adalah saat musim kemarau, antara Mei dan September.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.querySelectorAll('.faq-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('.faq-icon');
+
+        if (content.classList.contains('hidden')) {
+          content.classList.remove('hidden');
+          icon.textContent = '-';
+        } else {
+          content.classList.add('hidden');
+          icon.textContent = '+';
+        }
+      });
+    });
+  </script>
+
+  <!-- Section Gallery -->
+  <section id="gallery" class="bg-white py-16 px-4 md:px-8 mt-16">
+    <div class="container mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-yellow-600 text-center">Gallery Kota Medan</h2>
+      <p class="text-gray-600 text-center mt-4">Lihat keindahan dan pesona Kota Medan dari berbagai sudut.</p>
+      <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <img src="src/img/gallery1.jpg" alt="Gambar 1" class="w-full h-48 object-cover rounded-lg shadow-md"  data-aos="zoom-in">
+        <img src="src/img/gallery2.jpg" alt="Gambar 2" class="w-full h-48 object-cover rounded-lg shadow-md"  data-aos="zoom-in" data-aos-delay="200">
+        <img src="src/img/gallery3.jpg" alt="Gambar 3" class="w-full h-48 object-cover rounded-lg shadow-md"  data-aos="zoom-in" data-aos-delay="400">
+        <img src="src/img/gallery4.jpg" alt="Gambar 4" class="w-full h-48 object-cover rounded-lg shadow-md"  data-aos="zoom-in" data-aos-delay="600">
+        <img src="src/img/gallery5.jpg" alt="Gambar 5" class="w-full h-48 object-cover rounded-lg shadow-md"  data-aos="zoom-in" data-aos-delay="800">
+        <img src="src/img/gallery6.jpg" alt="Gambar 6" class="w-full h-48 object-cover rounded-lg shadow-md"  data-aos="zoom-in" data-aos-delay="1000">
+        <img src="src/img/gallery7.jpg" alt="Gambar 7" class="w-full h-48 object-cover rounded-lg shadow-md"  data-aos="zoom-in" data-aos-delay="1100">
+        <img src="src/img/gallery8.jpg" alt="Gambar 8" class="w-full h-48 object-cover rounded-lg shadow-md"  data-aos="zoom-in" data-aos-delay="1200">
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Hubungi Kami -->
+  <section id="contact" class="bg-white py-16 px-4 md:px-8 mt-16">
+    <div class="container mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-yellow-600 text-center">Hubungi Kami</h2>
+      <p class="text-gray-600 text-center mt-4">Jika Anda memiliki pertanyaan atau membutuhkan informasi lebih lanjut, silakan hubungi kami.</p>
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Form Kontak -->
+        <form class="bg-white shadow-md rounded-lg p-6 space-y-4">
+          <div>
+            <label for="name" class="block text-gray-700 font-bold">Nama</label>
+            <input type="text" id="name" name="name" class="w-full border border-gray-300 rounded-md p-2 mt-1" placeholder="Masukkan nama Anda">
+          </div>
+          <div>
+            <label for="email" class="block text-gray-700 font-bold">Email</label>
+            <input type="email" id="email" name="email" class="w-full border border-gray-300 rounded-md p-2 mt-1" placeholder="Masukkan email Anda">
+          </div>
+          <div>
+            <label for="message" class="block text-gray-700 font-bold">Pesan</label>
+            <textarea id="message" name="message" rows="4" class="w-full border border-gray-300 rounded-md p-2 mt-1" placeholder="Tulis pesan Anda"></textarea>
+          </div>
+          <button type="submit" class="bg-yellow-600 text-white px-4 py-2 rounded-md hover:bg-yellow-700">Kirim</button>
+        </form>
+        <!-- Lokasi Map -->
+        <div class="relative">
+          <h3 class="text-xl font-bold text-gray-700 mb-4">Lokasi Kami</h3>
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127632.52729072258!2d98.59249426510408!3d3.5951956332528936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131bc9e0b62e7%3A0x4ff05668b9c5ef27!2sMedan%2C%20Sumatera%20Utara!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" 
+            width="100%" 
+            height="400" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            class="rounded-lg shadow-md">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section id="cta" class="bg-gray-900  py-16 px-4 md:px-8 text-center text-white mt-16">
+    <div class="container mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Mari Jelajahi Kota Medan Bersama Kami!</h2>
+      <p class="text-lg md:text-xl mb-6">Temukan keindahan budaya, kuliner, dan destinasi wisata yang tak terlupakan di Kota Medan.</p>
+      <a href="https://www.kayak.co.id/rute-penerbangan/Indonesia-ID0/Kota-Medan-Kuala-Namu-Intl-KNO?sck=SEM&skipapp=true&gclid=CjwKCAiAp4O8BhAkEiwAqv2UqOyjOWdbi53b3oLGTMgVvfnb-21i7WbiqDAeJld89jHfN3OdfCavNhoCqhIQAvD_BwE" class="bg-white text-yellow-600 px-6 py-3 rounded-md font-bold text-lg hover:bg-yellow-100 transition">
+        Mulai Sekarang
+      </a>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-8 px-4 md:px-8">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Tentang Kami -->
+      <div>
+        <h3 class="text-xl font-bold text-white mb-4">Tentang Kami</h3>
+        <p>Kami adalah platform informasi tentang Kota Medan yang membantu Anda menjelajahi budaya, kuliner, dan destinasi wisata terbaik.</p>
+      </div>
+      <!-- Navigasi -->
+      <div>
+        <h3 class="text-xl font-bold text-white mb-4">Navigasi</h3>
+        <ul class="space-y-2">
+          <li><a href="#gallery" class="hover:text-yellow-500">Gallery</a></li>
+          <li><a href="#contact" class="hover:text-yellow-500">Hubungi Kami</a></li>
+          <li><a href="#faq" class="hover:text-yellow-500">FAQ</a></li>
+          <li><a href="#cta" class="hover:text-yellow-500">Jelajahi Medan</a></li>
+        </ul>
+      </div>
+      <!-- Sosial Media -->
+      <div>
+        <h3 class="text-xl font-bold text-white mb-4">Ikuti Kami</h3>
+        <div class="flex space-x-4">
+          <a href="https://instagram.com/syauqirmdn" class="text-gray-300 hover:text-yellow-500"><i class="fab fa-instagram"></i></a>
+          <a href="https://youtube.com/@syauqiramadhan4833" class="text-gray-300 hover:text-yellow-500"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="mt-8 text-center text-sm border-t border-gray-700 pt-4">
+      &copy; 2025 Kota Medan. All Rights Reserved.
+    </div>
+  </footer>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>
